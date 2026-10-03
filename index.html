@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aly & Nourhanda - Wedding Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta property="image" content="img5.jfif">
+    <meta property="og:image" content="https://aly-nourhanda-wedding.vercel.app/img5.jfif">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aly-nourhanda-wedding.vercel.app/img5.jfif">
+</head>
+<body>
+    <!-- Intro Cover -->
+    <div id="intro-cover" class="intro-cover">
+        <!-- Floating hearts background -->
+        <div class="floating-hearts">
+            <span class="heart-float">♥</span>
+            <span class="heart-float">♥</span>
+            <span class="heart-float">♥</span>
+            <span class="heart-float">♥</span>
+        </div>
+
+        <div class="cover-card">
+            <!-- Top left flower -->
+            <img src="./flower.png" alt="Flower" class="corner-flower top-left">
+            <!-- Bottom right flower -->
+            <img src="./flower.png" alt="Flower" class="corner-flower bottom-right">
+
+            <div class="icon-heart">♥</div>
+            <h1>Aly<br>&<br>Nourhanda</h1>
+            <div class="divider"></div>
+            <p class="date">October 19, 2026</p>
+            <p class="subtitle">Cordially Invites</p>
+            <button id="open-btn" class="open-btn">Open</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Save the Date Section -->
+        <section class="save-the-date">
+            <p class="section-title">SAVE THE DATE</p>
+            <div class="envelope-wrapper">
+                <!-- Layer 1: Envelope Background -->
+                <img src="./envelope-background.webp" class="layer-bg" alt="Envelope Background">
+                
+                <!-- Layer 2: Couple Photo -->
+                <div class="layer-photo-container">
+                    <img src="./img4.jfif" class="couple-photo" alt="Aly and Nourhanda">
+                </div>
+
+                <!-- Layer 3: Floral Element -->
+                <img src="./flower.png" class="layer-floral" alt="Floral Element">
+
+                <!-- Layer 4: Envelope Cover -->
+                <img src="./envelope-cover.webp" class="layer-cover" alt="Envelope Cover">
+            </div>
+            <h2 class="names">Aly<br>&<br>Nourhanda</h2>
+        </section>
+
+        <!-- Ceremony Info Section -->
+        <section class="ceremony-info">
+            <div class="burgundy-card">
+                <!-- Floral Element -->
+                <img src="./flower.png" alt="Side Floral" class="floating-side-flower">
+                
+                <!-- Quran Verse -->
+                <p class="quran-verse-stacked">
+                    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ<br>
+                    أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم<br>
+                    مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Invitation Message -->
+                <p class="invite-text-stacked">
+                    يسعدنا ويشرفنا حضوركم ومشاركتكم أجمل<br>
+                    لحظات فرحتنا، لنبدأ معاً حياة جديدة
+                </p>
+                
+                <!-- Names -->
+                <div class="names-container">
+                    <h2 class="inline-names">Aly & Nourhanda</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="photo-gallery-section">
+            <h3 class="gallery-title">PHOTO GALLERY</h3>
+            
+            <div class="gallery-container" id="galleryContainer">
+                <div class="gallery-card active" data-index="0">
+                    <img src="./img1.jfif" alt="Photo 1">
+                </div>
+                <div class="gallery-card" data-index="1">
+                    <img src="./img2.jfif" alt="Photo 2">
+                </div>
+                <div class="gallery-card" data-index="2">
+                    <img src="./img3.jfif" alt="Photo 3">
+                </div>
+                <div class="gallery-card" data-index="3">
+                    <img src="./img5.jfif" alt="Photo 4">
+                </div>
+            </div>
+
+            <!-- Gallery Dots -->
+            <div class="gallery-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <!-- Reception Info Section -->
+        <section class="reception-info">
+            <div class="burgundy-card relative-card">
+                <!-- Side Floral -->
+                <img src="./flower.png" alt="Side Floral" class="floating-side-flower right-side">
+                
+                <!-- Countdown -->
+                <h3>COUNTDOWN</h3>
+                <div id="countdown-timer" class="countdown-container">
+                    <span id="days">00</span> days 
+                    <span id="hours">00</span> hours 
+                    <span id="minutes">00</span> min 
+                    <span id="seconds">00</span> sec
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Info -->
+                <h3>INFO</h3>
+                <p class="location-name"> Jumeira hall</p>
+                <p class="location-name">  راس البر - الجربي </p>
+
+                <!-- Location Button -->
+                <a href="https://maps.apple/p/NLxXwWJr3Ei5cG" target="_blank" class="location-btn">
+                    <span>View Location</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </a>
+                
+                <p class="date-time">MONDAY 07:00 PM</p>
+                <p class="date-time">19 OCTOBER 2026</p>
+
+                <!-- Calendar Card -->
+                <div class="calendar-card">
+                    <p class="cal-month">October 2026</p>
+                    <div class="cal-grid">
+                        <!-- Days of the week -->
+                        <div class="cal-day">Sa</div>
+                        <div class="cal-day">Su</div>
+                        <div class="cal-day">Mo</div>
+                        <div class="cal-day">Tu</div>
+                        <div class="cal-day">We</div>
+                        <div class="cal-day">Th</div>
+                        <div class="cal-day">Fr</div>
+                        
+                        <!-- Row 1 -->
+                        <div></div><div></div><div></div><div></div><div></div><div class="cal-num">1</div><div class="cal-num">2</div>
+                        
+                        <!-- Month grid rows -->
+                        <div class="cal-num">3</div><div class="cal-num">4</div><div class="cal-num">5</div><div class="cal-num">6</div><div class="cal-num">7</div><div class="cal-num">8</div><div class="cal-num">9</div>
+                        <div class="cal-num">10</div><div class="cal-num">11</div><div class="cal-num">12</div><div class="cal-num">13</div><div class="cal-num">14</div><div class="cal-num">15</div><div class="cal-num">16</div>
+                        <div class="cal-num">17</div><div class="cal-num">18</div><div class="active-day">19</div><div class="cal-num">20</div><div class="cal-num">21</div><div class="cal-num">22</div><div class="cal-num">23</div>
+                        <div class="cal-num">24</div><div class="cal-num">25</div><div class="cal-num">26</div><div class="cal-num">27</div><div class="cal-num">28</div><div class="cal-num">29</div><div class="cal-num">30</div>
+                        <div class="cal-num">31</div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outro Section -->
+        <section class="outro-section">
+            <div class="burgundy-card outro-card">
+                <img src="./flower.png" alt="Floral Element" class="floating-side-flower right-side">
+
+                <div class="outro-couple-photo">
+                    <img src="./infinity.png" alt="Aly and Nourhanda">
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="outro-closing">ننتظركم بكل حب لنصنع معاً ذكريات لا تُنسى</p>
+                
+                <div class="outro-names">
+                    <h2>Aly</h2>
+                    <span class="outro-amp">&</span>
+                    <h2>Nourhanda</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Music Button -->
+    <div id="music-btn" class="music-btn">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source src="./Ramy.Ayach_Mabrouk.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="footer-credit">
+        <a href="https://www.instagram.com/youra_coding" target="_blank" class="credit-link">
+            <svg class="code-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>Our Page: Youra-Coding</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
