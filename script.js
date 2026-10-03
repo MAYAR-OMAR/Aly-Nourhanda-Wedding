@@ -182,3 +182,83 @@ function startAutoScroll() {
     window.addEventListener('wheel', stopScroll, { passive: true, once: true });
     window.addEventListener('mousedown', stopScroll, { passive: true, once: true });
 }
+
+
+
+// --- Firebase Configuration (مربوط بقاعدتك الجديدة) ---
+const firebaseConfig = {
+    apiKey: "AIzaSyCfFK13FQLqViYnKkv-0AmVVjiPLoLT1dg",
+    authDomain: "nourhanda-ali-wedding.firebaseapp.com",
+    databaseURL: "https://nourhanda-ali-wedding-default-rtdb.firebaseio.com",
+    projectId: "nourhanda-ali-wedding",
+    storageBucket: "nourhanda-ali-wedding.appspot.com",
+    messagingSenderId: "1000557505963",
+    appId: "1:1000557505963:web:1517e398618d33b53ff6ee"
+};
+
+// Initialize Firebase
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.database();
+
+// Guestbook Logic
+const guestForm = document.getElementById('guestbook-form');
+const guestNameInput = document.getElementById('guest-name');
+const guestMessageInput = document.getElementById('guest-message');
+const wishesContainer = document.getElementById('wishes-container');
+
+if (guestForm) {
+    guestForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = guestNameInput.value.trim();
+        const message = guestMessageInput.value.trim();
+
+        if (!name || !message) return;
+
+        const timestamp = new Date().toLocaleString();
+
+        // Push to Firebase Realtime Database
+        db.ref('wishes').push({
+            name: name,
+            message: message,
+            date: timestamp
+        }, (error) => {
+            if (!error) {
+                guestNameInput.value = '';
+                guestMessageInput.value = '';
+            } else {
+                alert('حصلت مشكلة، حاول تاني.');
+            }
+        });
+    });
+
+    // Listen for wishes in real-time
+}
+
+if (wishesContainer) {
+    db.ref('wishes').on('value', (snapshot) => {
+        wishesContainer.innerHTML = '';
+        const data = snapshot.val();
+        if (data) {
+            const wishes = Object.values(data).reverse(); // أحدث التهنئات فوق
+            wishes.forEach(wish => {
+                const wishDiv = document.createElement('div');
+                wishDiv.className = 'wish-item';
+                wishDiv.innerHTML = `
+                    <div class="wish-header">
+                        <span class="wish-author">${escapeHtml(wish.name)}</span>
+                        <span class="wish-date">${escapeHtml(wish.date)}</span>
+                    </div>
+                    <div class="wish-text">${escapeHtml(wish.message)}</div>
+                `;
+                wishesContainer.appendChild(wishDiv);
+            });
+        }
+    });
+}
+
+function escapeHtml(text) {
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}

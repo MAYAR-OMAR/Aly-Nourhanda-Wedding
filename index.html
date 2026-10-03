@@ -16,6 +16,8 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="600" />
 <meta name="description" content="We invite you to the wedding of Aly & Nourhanda" />
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
 <body>
     <!-- Intro Cover -->
@@ -180,6 +182,48 @@
                 </div>
             </div>
         </section>
+
+
+
+<!-- Guestbook Section -->
+<section class="guestbook-section">
+    <div class="burgundy-card guestbook-card">
+        <!-- فرع الورد على اليمين مع أنيميشن الحركة -->
+        <div class="flower-decoration">
+            <img src="./flower.png" alt="Flower Decoration">
+        </div>
+
+        <h3 class="gallery-title" style="color: #cba135; font-size: 24px; margin-bottom: 20px; text-align: center;">GUESTBOOK</h3>
+        
+        <!-- Form to Send Wishes -->
+        <form id="guestbook-form" class="guestbook-form">
+            <div class="input-group">
+                <input type="text" id="guest-name" placeholder="Enter your name*" required>
+            </div>
+            <div class="input-group">
+                <textarea id="guest-message" placeholder="Enter your wishes*" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="location-btn send-wish-btn">
+                <span>SEND WISHES</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
+            </button>
+        </form>
+
+        <div class="divider" style="margin: 15px 0; border-top: 1px solid rgba(203, 161, 53, 0.3);"></div>
+
+        <!-- Wishes List Container -->
+        <div id="wishes-container" class="wishes-container">
+            <!-- الـ Comments هتنزل هنا تلقائي -->
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
 
         <!-- Outro Section -->
         <section class="outro-section">

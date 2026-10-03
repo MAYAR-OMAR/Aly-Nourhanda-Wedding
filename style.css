@@ -1168,3 +1168,463 @@ section {
 
 
 
+
+
+
+/* 1. 3mlna gab/padding lil section 3shan el cart mayeb2ash laz2 f araf el shasha */
+.guestbook-section {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.guestbook-card {
+    position: relative;
+    overflow: hidden;
+    background: #4a121a !important;
+    border-radius: 15px;
+    border: 1px solid rgba(203, 161, 53, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    padding: 30px 20px;
+    max-width: 480px;
+    width: 100%;
+}
+
+/* 2. El warda etlat fo2 5als 3l ymeen mn el trf (top: 0, right: 0) */
+.flower-decoration {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 95px;
+    pointer-events: none;
+    animation: floatFlower 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.flower-decoration img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 3. S8rna el height beta3 el inputs w 5lnaha compact w mratba */
+.guestbook-form {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px 12px; /* Height s8ir w msh kbir */
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+}
+
+.input-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    height: 65px; /* S8rna el tool beta3ha gdan */
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+    resize: none;
+}
+
+.send-wish-btn {
+    width: 100%;
+    background: #cba135 !important;
+    color: #4a121a !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.send-wish-btn:hover {
+    background: #fff !important;
+}
+.wishes-container {
+    position: relative;
+    z-index: 3;
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+/* صندوق التعليقات اللي بتنزل فيه التهاني */
+.wishes-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 15px;
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+.wish-item {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 4px solid #cba135;
+    text-align: left;
+}
+
+.wish-author {
+    font-weight: bold;
+    color: #4a121a;
+    font-size: 13px;
+}
+
+.wish-date {
+    font-size: 10px;
+    color: #777;
+}
+
+.wish-text {
+    font-size: 12px;
+    color: #333;
+    word-break: break-word;
+}
+
+
+/* 1. N5li el form nafsha te2af 3nd el msa7a ely enty rasmtyha b el 5t el a7mr */
+.guestbook-form {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    width: 78%; /* Da hy5ly el width y2af qbl ma ywsl lel warda 3l ymeen */
+    margin-left: 0; /* Ybda2 mn el 4mal 3ady */
+}
+
+/* 2. Aw t2dri tst5dmi el padding-right ll krt btafk w t4ili el width mn el form: */
+.guestbook-card {
+    position: relative;
+    overflow: hidden;
+    background: #4a121a !important;
+    border-radius: 15px;
+    border: 1px solid rgba(203, 161, 53, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    padding: 35px 70px 25px 20px; /* Zwdna el padding-right mn 20px l 70px 34an yseeb makan llwrda w el inputs mtgish fih */
+    max-width: 480px;
+    width: 100%;
+}
+
+/* El inputs w el zrar hytb3o el msa7a bta3t el krt */
+.input-group input,
+.input-group textarea,
+.send-wish-btn {
+    width: 100%; /* Hta5od el msa7a el mta7a baqi mn el padding */
+}
+/* ظبطنا الكارت الأساسي وعملنا مساحة متساوية من الناحيتين */
+.guestbook-card {
+    position: relative;
+    overflow: hidden;
+    background: #4a121a !important;
+    border-radius: 15px;
+    border: 1px solid rgba(203, 161, 53, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    padding: 35px 20px 25px 20px;
+    max-width: 480px;
+    width: 100%;
+}
+
+/* 1. الوردة على أقصى اليمين خالص، وطولها زايد عشان تملى الفراغ بشكل شيك */
+.flower-decoration {
+    position: absolute;
+    right: -20px; /* لزقناها أقصى اليمين خالص برة حافة الكارت بحاجة بسيطة */
+    top: -15px;  /* طلعناها لفوق خالص من الطرف */
+    width: 125px; /* كبرنا عرضها شوية */
+    height: 110%; /* خلينا طولها يمتد عشان تبان أطول وأشيك */
+    pointer-events: none;
+    animation: floatFlower 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.flower-decoration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 2. صغرنا عرض الـ Inputs وخليناها في النص تماماً (Centered) */
+.guestbook-form {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* بتسنتر العناصر جوه الفورم في النص تماماً */
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.input-group {
+    width: 75%; /* صغرنا عرض الـ Input بدل ما ياخد الكارت كله، بقى في النص */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+}
+
+.input-group textarea {
+    width: 100%;
+    padding: 9px 14px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+    resize: none;
+}
+
+/* زرار الإرسال يكون بنفس عرض الـ Inputs وفي النص برضه */
+.send-wish-btn {
+    width: 75%; 
+    background: #cba135 !important;
+    color: #4a121a !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.send-wish-btn:hover {
+    background: #fff !important;
+}
+
+/* صندوق التعليقات يتسنتر برضه في النص وبنفس العرض */
+.wishes-container {
+    position: relative;
+    z-index: 3;
+    margin: 15px auto 0 auto;
+    width: 75%;
+    max-height: 180px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* Zwdna el padding-right gdan 3shan nseeb msa7a kbera wada7a lel warda mn 3l ymeen w matlzqsh fiha el inputs */
+.guestbook-card {
+    position: relative;
+    overflow: hidden;
+    background: #4a121a !important;
+    border-radius: 15px;
+    border: 1px solid rgba(203, 161, 53, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    padding: 35px 85px 25px 25px; /* zwdna el ymeen l 85px 3shan el warda ta5od ra7tha w el inputs tb3d 3nha */
+    max-width: 520px;
+    width: 100%;
+}
+
+/* El warda f a3la el ymeen bra7tha w twela */
+.flower-decoration {
+    position: absolute;
+    right: -25px;
+    top: -15px;
+    width: 120px;
+    height: 110%;
+    pointer-events: none;
+    animation: floatFlower 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+.flower-decoration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* El form w el inputs b2aw f nos el msa7a el mta7a bzabt w ba3den 3n el warda */
+.guestbook-form {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.input-group {
+    width: 85%; /* 3rd mnasb y5lihom f nos el krt w b3ad tmamn 3n el warda */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+}
+
+.input-group textarea {
+    width: 100%;
+    padding: 9px 14px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #cba135;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+    resize: none;
+}
+
+.send-wish-btn {
+    width: 85%; 
+    background: #cba135 !important;
+    color: #4a121a !important;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.send-wish-btn:hover {
+    background: #fff !important;
+}
+
+.wishes-container {
+    position: relative;
+    z-index: 3;
+    margin: 15px auto 0 auto;
+    width: 85%;
+    max-height: 180px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+/* El divider ely ta7t el zorar */
+.guestbook-divider, 
+hr {
+    width: 85%;          /* Neys 3rd el inputs w el zorar */
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: 40px;   /* Neys el raqm ely st5dmto m3 el inputs w el zorar 3shan yb2o mtzbteen sawa */
+    border: none;
+    border-top: 1px solid rgba(232, 226, 213, 0.4); /* Lon beige shfaf */
+}
+
+
+
+/* Zwd el raqm da lhad ma yb2a mtzbt m3 el inputs */
+.guestbook-card h3, 
+.guestbook-title {
+    margin-left: 30px; /* Zwdi aw naqsi el raqm da lhad ma tstry7i lel makan */
+}
+/* El khatt elly ta7t el zrar */
+.guestbook-divider, 
+.guestbook-card hr {
+    margin-left: 30px; /* Nefs el raqm 3shan yb2o mtzbteen sawa */
+    width: 85%;        /* Aw nefs 3rd el inputs */
+}
+
+.guestbook-card .gallery-title {
+    width: 85% !important;
+    margin-left: 40px !important;
+    text-align: center !important;
+}
+
+.guestbook-card .divider {
+    width: 85% !important;
+    margin-left: 50px !important;
+}
+
+
+
+
+
