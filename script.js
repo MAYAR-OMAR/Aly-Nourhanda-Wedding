@@ -136,40 +136,49 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGallery(currentIndex);
     }
 });
-
 function startAutoScroll() {
     let stopped = false;
-    let animationId;
+    let scrollInterval;
 
-    function scrollStep() {
+    function startScrolling() {
         if (stopped) return;
 
-        const currentScroll = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        // بنستخدم setInterval بمسافات زمنية صغيرة (مثلاً كل 20 ملي ثانية) 
+        // الطريقة دي أثبتت كفاءة عالية جداً مع آيفون وسافاري لأنها مش بتعتمد على requestAnimationFrame اللي بيتعطل
+        scrollInterval = setInterval(() => {
+            if (stopped) {
+                clearInterval(scrollInterval);
+                return;
+            }
 
-        if (currentScroll >= maxScroll - 2) {
-            stopped = true;
-            return;
-        }
+            const currentScroll = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
-        // Sor3a hadi w na3ma 3la el iPhone (0.6)
-        window.scrollTo(0, currentScroll + 0.6);
-        animationId = requestAnimationFrame(scrollStep);
+            if (currentScroll >= maxScroll - 2) {
+                stopped = true;
+                clearInterval(scrollInterval);
+                return;
+            }
+
+            // بنحرك الصفحة خطوة صغيرة
+            window.scrollBy(0, 1);
+        }, 25); // كل 25 مللي ثانية خطوة، هتديك حركة سلسة جداً في الآيفون وكل الموبايلات
     }
 
+    // تأخير بسيط جداً بعد الضغط عشان الآيفون يفتح الصفحة ويجهز الـ DOM
     setTimeout(() => {
-        requestAnimationFrame(() => {
-            scrollStep();
-        });
-    }, 500);
+        startScrolling();
+    }, 800);
 
     function stopScroll() {
+        if (stopped) return;
         stopped = true;
-        cancelAnimationFrame(animationId);
+        clearInterval(scrollInterval);
     }
 
-    // 3adna el touchmove 3shan el iPhone bytgahad el touchstart law7do ahyanan fel scroll
+    // أي حركة من المستخدم (لمس، سكرول بالماوس، أو تاتش) توقف الأوتو سكرول فوراً عشان يسيب لليوزر التحكم
     window.addEventListener('touchstart', stopScroll, { passive: true, once: true });
     window.addEventListener('touchmove', stopScroll, { passive: true, once: true });
     window.addEventListener('wheel', stopScroll, { passive: true, once: true });
+    window.addEventListener('mousedown', stopScroll, { passive: true, once: true });
 }
