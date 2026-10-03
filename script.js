@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         bgMusic.currentTime = 28;
         bgMusic.play().catch(err => console.log('Autoplay blocked:', err));
 
-        // Start Auto Scroll
-        startAutoScroll();
+        // Start Auto Scroll (M2a5ar 300ms 3shan el iPhone maysh3lsh kol haga sawa w ye3l2)
+        setTimeout(() => {
+            startAutoScroll();
+        }, 300);
 
         // Hide overlay from DOM after transition
         setTimeout(() => {
@@ -150,7 +152,8 @@ function startAutoScroll() {
             return;
         }
 
-        window.scrollTo(0, currentScroll + 0.7);
+        // Sor3a hadi w na3ma 3la el iPhone (0.6)
+        window.scrollTo(0, currentScroll + 0.6);
         animationId = requestAnimationFrame(scrollStep);
     }
 
@@ -158,13 +161,15 @@ function startAutoScroll() {
         requestAnimationFrame(() => {
             scrollStep();
         });
-    }, 1000);
+    }, 500);
 
     function stopScroll() {
         stopped = true;
         cancelAnimationFrame(animationId);
     }
 
+    // 3adna el touchmove 3shan el iPhone bytgahad el touchstart law7do ahyanan fel scroll
     window.addEventListener('touchstart', stopScroll, { passive: true, once: true });
+    window.addEventListener('touchmove', stopScroll, { passive: true, once: true });
     window.addEventListener('wheel', stopScroll, { passive: true, once: true });
 }
