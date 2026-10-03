@@ -150,7 +150,7 @@ function startAutoScroll() {
             return;
         }
 
-        window.scrollTo(0, currentScroll + 0.9);
+        window.scrollTo(0, currentScroll + 0.7);
         animationId = requestAnimationFrame(scrollStep);
     }
 
